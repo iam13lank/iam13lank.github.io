@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Shaker's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <a href="#" id="nav-home" onclick="showSection('home')">Home</a>
+            <a href="#" id="nav-about" onclick="showSection('about')">About Me</a>
+            <a href="#" id="nav-skills" onclick="showSection('skills')">Skills</a>
+            <a href="#" id="nav-experience" onclick="showSection('experience')">Work Experience</a>
+            <a href="#" id="nav-education" onclick="showSection('education')">Education</a>
+            <a href="#" id="nav-projects" onclick="showSection('projects')">Projects</a>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="content-section active">
+            <div class="home-container">
+                <h2>Ali Shaker</h2>
+                <div class="home-icons">
+                    <a href="mailto:Ashaker98@hotmail.com" target="_blank"><i class="fas fa-envelope tech-icon"></i></a>
+                    <a href="tel:+18327819622" target="_blank"><i class="fas fa-phone tech-icon"></i></a>
+                    <a href="https://www.linkedin.com/in/ali-shaker-370b7a135/" target="_blank"><i class="fab fa-linkedin tech-icon"></i></a>
+                    <a href="https://github.com/iam13lank" target="_blank"><i class="fab fa-github tech-icon"></i></a>
+                </div>
+            </div>
+        </section>             
+        <section id="about" class="content-section">
+            <div class="about-container">
+                <img src="images/my-image.jpg" alt="Ali Shaker" class="profile-image">
+                <p>Hi, I'm Ali Shaker. I enjoy surfing, playing videogames, spending time with my dog, and hanging out with my family.</p>
+            </div>
+        </section>
+        <section id="skills" class="content-section">
+            <div class="skills-container">
+                <!-- Programming Languages Card -->
+                <div class="skills-card">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-icons">
+                        <i class="fab fa-html5 tech-icon"></i>
+                        <i class="fab fa-css3-alt tech-icon"></i>
+                        <i class="fas fa-c tech-icon"></i>
+                        <i class="fab fa-python tech-icon"></i>
+                        <i class="fab fa-js-square tech-icon"></i>
+                        <i class="fab fa-java tech-icon"></i>
+                    </div>
+                </div>
+        
+                <!-- Frameworks & Libraries Card -->
+                <div class="skills-card">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skills-icons">
+                        <i class="fab fa-react tech-icon"></i>
+                        <i class="fab fa-angular tech-icon"></i>
+                        <i class="fab fa-vuejs tech-icon"></i>
+                        <i class="fab fa-jira tech-icon"></i>
+                        <i class="fab fa-confluence tech-icon"></i>
+                    </div>
+                </div>
+        
+                <!-- Tools & Platforms Card -->
+                <div class="skills-card">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skills-icons">
+                        <i class="fab fa-docker tech-icon"></i>
+                        <i class="fab fa-git tech-icon"></i>
+                        <i class="fab fa-aws tech-icon"></i>
+                        <i class="fab fa-unity tech-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="content-section">
+            <div class="carousel-container">
+                <button class="carousel-button left" onclick="scrollCarousel('left')">&lt;</button>
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <div class="logo-container">
+                            <img src="images/grn_image.jpg" alt="Grass Roots Neighbors" class="company-logo">
+                        </div>
+                        <div class="carousel-content">
+                            <h3>Volunteer Software Engineer – Grass Roots Neighbors</h3>
+                            <p>September 2022 - Present (2 years 5 months)</p>
+                            <ul>
+                                <li>Implemented AWS Lambdas to test user confirmation messages, monitored via AWS console & CloudWatch.</li>
+                                <li>Conducted peer reviews on GitHub, and managed code integration using pipeline.</li>
+                                <li>Resolved security issues for IAM users and groups.</li>
+                                <li>Assisted in designing email templates and managed tasks using ClickUp.</li>
+                                <li>Developed custom functions with Google App Script to update Google Sheets, Calendar, and AWS DynamoDB.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="logo-container">
+                            <img src="images/cc_image.jpg" alt="Crescendo Collective" class="company-logo">
+                        </div>
+                        <div class="carousel-content">
+                            <h3>Web Developer – Crescendo Collective</h3>
+                            <p>September 2022 - July 2024 (1 year 11 months)</p>
+                            <ul>
+                                <li>Contributed to Agile project delivery, and acted as Scrum Master for a leading pharmaceutical company, utilizing JIRA for ticket management and client interactions.</li>
+                                <li>Developed and implemented API solutions and designed HTML email templates. Utilized Postman for testing.</li>
+                                <li>Optimized website performance by refactoring code in HTML, CSS, JavaScript, TypeScript, and Java, resulting in decreasing load time from 3 seconds to 0.5 seconds.</li>
+                                <li>Created interactive components using Magnolia CMS, demonstrated proofs of concept to prospects, and managed local backend environments with IntelliJ and Tomcat Server.</li>
+                                <li>Automated testing using Cypress; reduced testing from 1 hour to 15 minutes.</li>
+                                <li>Conducted peer reviews on GitHub and Bitbucket, and documented technical details in Confluence.</li>
+                                <li>Delivered comprehensive front-end and back-end solutions to clients.</li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="carousel-item">
+                        <div class="logo-container">
+                            <img src="images/gs_image.png" alt="Geek Squad" class="company-logo">
+                        </div>
+                        <div class="carousel-content">
+                            <h3>Consultation Agent – Geek Squad</h3>
+                            <p>September 2021 - October 2022 (1 year 2 months)</p>
+                            <ul>
+                                <li>Assisted clients by diagnosing and repairing hardware/software issues.</li>
+                                <li>Worked in a fast-paced environment.</li>
+                                <li>Handled shipping and receiving of client units.</li>
+                                <li>Tested returned devices and certified them according to their quality.</li>
+                                <li>Apple certified agent: diagnosed and fixed issues related to iOS devices.</li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="carousel-item">
+                        <div class="logo-container">
+                            <img src="images/csudh_image.png" alt="CSUDH" class="company-logo">
+                        </div>
+                        <div class="carousel-content">
+                            <h3>Customer Support Intern – CSUDH Corporate & Foundation Relations</h3>
+                            <p>September 2021 - February 2022 (6 months)</p>
+                            <ul>
+                                <li>Provided software & hardware remote support to clients via Zoom/TeamViewer.</li>
+                                <li>Logged and resolved tickets in ServiceNow (escalated when necessary).</li>
+                            </ul>
+                        </div>
+                    </div> 
+                    <div class="carousel-item">
+                        <div class="logo-container">
+                            <img src="images/guardNow_image.jpg" alt="Guard Now" class="company-logo">
+                        </div>
+                        <div class="carousel-content">
+                            <h3>Technical Support – guardNOW</h3>
+                            <p>July 2017 - August 2018 (1 year 2 months)</p>
+                            <ul>
+                                <li>Initiated and supported online chatting programs.</li>
+                                <li>Configured and optimized the CRM.</li>
+                                <li>Automated workflow processes.</li>
+                                <li>Administered Trackit for scheduling.</li>
+                                <li>Used CRMs to identify leads and accounts.</li>
+                                <li>Kept record of clients and contracts.</li>
+                                <li>Supported software and hardware computer issues.</li>
+                                <li>Assisted customers and cohorts.</li>
+                            </ul>
+                        </div>
+                    </div>               
+                </div>
+                <button class="carousel-button right" onclick="scrollCarousel('right')">&gt;</button>
+            </div>
+        </section>
+        <section id="education" class="content-section">
+            <div class="education-container">
+                <!-- Associate's Degree Card -->
+                <div class="education-card">
+                    <h3>Associate's Degree</h3>
+                    <div class="education-details">
+                        <h4>West Los Angeles College</h4>
+                        <img src="images/associate-college.jpg" alt="Associate College" class="college-image"> 
+                        <p>GPA: 2.8</p>
+                        <p>Graduated: 2020</p>
+                    </div>
+                </div>
+        
+                <!-- Bachelor's Degree Card -->
+                <div class="education-card">
+                    <h3>Bachelor's Degree</h3>
+                    <div class="education-details">
+                        <h4>California State University-Dominguez Hills</h4>
+                        <img src="images/bachelor-college.jpg" alt="Bachelor College" class="college-image">
+                        <p>GPA: 3.0</p>
+                        <p>Graduated: 2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="content-section">
+            <div class="project">
+                <h3>Knocker Locker</h3>
+                <p>Developed and programmed a vibration-sensitive device using Raspberry Pi 3 and Python, which triggers actions from pre-learned patterns. Demonstrated with a servo motor simulating a door lock/unlock mechanism.</p>
+            </div>
+            <div class="project">
+                <h3>@chat</h3>
+                <p>Created an anonymous web chat app with a React frontend, NodeJS, and CSS. Backend developed in JavaScript with MongoDB. Demonstrated on a local test server via PowerShell and MySQL.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('images/image.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out; /* Smooth transition */
+}
+
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff; /* Default color */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a.active {
+    color: #ffdd57; /* Color for active link */
+}
+nav a:hover {
+    color: #ffdd57;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer p {
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px 40px; /* Adjusted padding to account for header and footer */
+    overflow: hidden;
+}
+
+.content-section {
+    display: none;
+    width: 100%; /* Ensure section takes up full width */
+    height: calc(100vh - 120px); /* Full height minus header and footer */
+    overflow-y: auto;
+    margin-top: 60px; /* Ensure the section is not hidden behind the header */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-section.active {
+    display: flex;
+    background-color: #f0f0f0; /* Different background color for active section */
+}
+
+/* Home section styles */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%; /* Full height */
+}
+
+.home-container h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+.home-icons {
+    gap: 15px;
+    display: flex;
+}
+
+.home-container .tech-icon:hover {
+    transform: scale(1.1);
+}   
+
+/* About me */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-image {
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    border-radius: 50%;
+    max-width: 100%; /* Ensure it doesn't exceed the container size */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+
+/* Skills */
+.skills-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.skills-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px; /* Adjust the width as needed */
+    margin-bottom: 20px;
+}
+
+.skills-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create a grid with 3 columns */
+    gap: 10px;
+    justify-content: center;
+}
+
+.tech-icon {
+    font-size: 50px; /* Adjust the size as needed */
+    color: #000; /* Black icons */
+    transition: transform 0.3s;
+}
+
+/* Work experience Carousel */
+.carousel {
+    display: flex;
+    overflow-x: hidden; /* Hide the scrollbar */
+    scroll-behavior: smooth;
+    gap: 20px; /* Optional: Adjust gap between carousel items */
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carousel-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-button:hover:not(.inactive) {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+.carousel-button.inactive {
+    background-color: #999; /* Change to a gray color */
+    cursor: default;
+    transform: none; /* No scaling effect */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.company-logo {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-item {
+    flex: 0 0 45%; /* Adjust width to fit two items per slide */
+    margin-right: 10px;
+    background-color: #eef;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*Education*/
+.education-container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.education-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%; /* Adjust the width as needed */
+    margin-bottom: 20px;
+}
+
+.education-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.education-details h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.college-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.education-details p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+
+/*Footer */
+.dialog {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+.dialog p {
+    margin: 0 0 10px;
+}
+
+.dialog button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
