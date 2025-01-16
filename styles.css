@@ -271,7 +271,7 @@ main {
 #projects.content-section.active {
     display: flex; 
     flex-wrap: wrap; 
-    justify-content: space-between !important;
+    justify-content: space-between;
 }
 
 .project-card {
