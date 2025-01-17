@@ -622,11 +622,31 @@ main {
 @media only screen and (max-width: 768px) {
     .project-card {
         width: 75%;
-        height: 250px;
+        height: 28%;
     }
 
     .card-back h3 {
         font-size: 1.3em;
+    }
+
+    .card-back p {
+        font-size: 1.4em;
+    }
+
+    .card-back a {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .project-card {
+        width: 75%;
+        height: 25%;
+    }
+
+    .card-back h3 {
+        font-size: 1.3em;
+        padding: 0;
     }
 
     .card-back p {
@@ -638,18 +658,15 @@ main {
     }
 }
 
-@media only screen and (max-width: 480px) {
-    .project-card {
-        width: 75%;
-        height: 150px;
-    }
+@media only screen and (max-width: 375px) {
 
     .card-back h3 {
-        font-size: 1.2em;
+        font-size: .8em;
+        padding: 0;
     }
 
     .card-back p {
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
 
     .card-back a {
