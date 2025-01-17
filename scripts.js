@@ -3,31 +3,20 @@ const header = document.getElementById('header');
 
 // Carousel scrolling
 const carousel = document.querySelector('.carousel');
-const leftButton = document.querySelector('.carousel-button.left');
-const rightButton = document.querySelector('.carousel-button.right');
-
-function scrollCarousel(direction) {
-    const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
-    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
-}
-
-leftButton.addEventListener('click', () => scrollCarousel('left'));
-rightButton.addEventListener('click', () => scrollCarousel('right'));
 
 function updateCarouselButtons() {
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
     if (carousel.scrollLeft <= 0) {
-        leftButton.classList.add('inactive');
+        carousel.classList.add('at-start');
     } else {
-        leftButton.classList.remove('inactive');
+        carousel.classList.remove('at-start');
     }
 
     if (carousel.scrollLeft >= maxScrollLeft) {
-        rightButton.classList.add('inactive');
+        carousel.classList.add('at-end');
     } else {
-        rightButton.classList.remove('inactive');
+        carousel.classList.remove('at-end');
     }
 }
 
@@ -36,13 +25,16 @@ carousel.addEventListener('scroll', updateCarouselButtons);
 // Touch functionality
 let startX;
 let scrollStart;
+let isDragging = false;
 
 carousel.addEventListener('touchstart', (e) => {
     startX = e.touches[0].pageX;
     scrollStart = carousel.scrollLeft;
+    isDragging = true;
 });
 
 carousel.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
     const x = e.touches[0].pageX;
     const walk = x - startX;
     carousel.scrollLeft = scrollStart - walk;
@@ -50,13 +42,16 @@ carousel.addEventListener('touchmove', (e) => {
 });
 
 carousel.addEventListener('touchend', () => {
-    const threshold = 100; // Minimum swipe distance in pixels to consider it a swipe
+    isDragging = false;
+    const threshold = 50; // Minimum swipe distance in pixels to consider it a swipe
     const moveX = carousel.scrollLeft - scrollStart;
     if (Math.abs(moveX) > threshold) {
-        scrollCarousel(moveX > 0 ? 'right' : 'left');
+        const direction = moveX > 0 ? 'right' : 'left';
+        const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
     }
 });
-
 
 // Dialogs for email and phone
 function showEmailDialog() {

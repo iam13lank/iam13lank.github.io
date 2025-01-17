@@ -530,9 +530,6 @@ main {
 }
 
 @media only screen and (max-width: 480px) {
-    .education-card {
-        width: 100%;
-    }
 
     .education-card h3 {
         font-size: 1.2em;
