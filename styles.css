@@ -6,15 +6,15 @@ body {
     background-image: url('images/image.jpg');
     background-size: cover;
     background-attachment: fixed;
-    color: #333;
+    color: #000;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Prevent scrolling */
+    height: 100vh; 
+    overflow: hidden; 
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7); 
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -22,7 +22,7 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: top 0.3s ease-in-out; /* Smooth transition */
+    transition: top 0.3s ease-in-out;
 }
 
 nav {
@@ -33,17 +33,19 @@ nav {
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #fff; /* Default color */
+    color: #fff; 
     font-weight: bold;
     transition: color 0.3s;
 }
 
 nav a.active {
-    color: #ffdd57; /* Color for active link */
+    color: #ffdd57; 
 }
+
 nav a:hover {
     color: #ffdd57;
 }
+
 footer {
     background-color: #333;
     color: #fff;
@@ -64,16 +66,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px 40px; /* Adjusted padding to account for header and footer */
+    padding: 60px 20px 40px; 
     overflow: hidden;
 }
 
 .content-section {
     display: none;
-    width: 100%; /* Ensure section takes up full width */
-    height: calc(100vh - 120px); /* Full height minus header and footer */
+    width: 100%; 
+    height: calc(100vh - 120px);
     overflow-y: auto;
-    margin-top: 60px; /* Ensure the section is not hidden behind the header */
+    margin-top: 60px; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -81,7 +83,68 @@ main {
 
 .content-section.active {
     display: flex;
-    background-color: #f0f0f0; /* Different background color for active section */
+    background-color: #f0f0f0a6;
+}
+
+/* Responsive Design for Base Styles */
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+
+    nav {
+        margin: 15px 0;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+
+    main {
+        padding: 50px 15px 30px;
+    }
+
+    .content-section {
+        margin-top: 50px;
+        height: calc(100vh - 100px);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        padding: 6px 0;
+        font-size: 0.8em;
+    }
+
+    nav {
+        margin: 10px 0;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 0.8em;
+    }
+
+    footer {
+        padding: 6px 0;
+        font-size: 0.8em;
+    }
+
+    main {
+        padding: 40px 10px 20px;
+    }
+
+    .content-section {
+        margin-top: 40px;
+        height: calc(100vh - 80px);
+    }
 }
 
 /* Home section styles */
@@ -91,37 +154,141 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100%; /* Full height */
+    height: 100%;
+    padding: 20px;
 }
 
 .home-container h2 {
     font-size: 3em;
     margin-bottom: 20px;
 }
+
 .home-icons {
     gap: 15px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .home-container .tech-icon:hover {
     transform: scale(1.1);
-}   
+}
 
-/* About me */
+/* Responsive Design for Home Section */
+@media only screen and (max-width: 768px) {
+    .home-container h2 {
+        font-size: 2.5em;
+    }
+
+    .home-icons {
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .tech-icon {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .home-container h2 {
+        font-size: 2em;
+    }
+
+    .tech-icon {
+        font-size: 30px;
+    }
+}
+
+/* About Me */
 .about-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .profile-image {
-    width: 150px; /* Adjust the width as needed */
-    height: auto;
-    border-radius: 50%;
-    max-width: 100%; /* Ensure it doesn't exceed the container size */
-    object-fit: cover; /* Maintain aspect ratio */
+    width: 200px;
+    height: 150px;
+    border-radius: 10%;
+    margin-bottom: 20px;
 }
 
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.about-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+}
+
+.hobby-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.about-card h3 {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0 10px 20px 10px;
+}
+
+/* Responsive Design for About Me Section */
+@media only screen and (max-width: 768px) {
+    .profile-image {
+        width: 150px;
+        height: 100px;
+    }
+
+    .about-grid {
+        flex-direction: column;
+    }
+
+    .about-card {
+        width: 100%;
+    }
+
+    .about-card h3 {
+        font-size: 1.3em;
+    }
+
+    .about-card p {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .profile-image {
+        width: 120px;
+        height: 90px;
+    }
+
+    .about-card h3 {
+        font-size: 1.2em;
+    }
+
+    .about-card p {
+        font-size: 0.8em;
+    }
+}
 
 /* Skills */
 .skills-container {
@@ -134,11 +301,11 @@ main {
 }
 
 .skills-card {
-    background-color: #fff;
+    background-color: #ced0d1;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px; /* Adjust the width as needed */
+    width: 300px;
     margin-bottom: 20px;
 }
 
@@ -148,24 +315,59 @@ main {
 }
 
 .skills-icons {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Create a grid with 3 columns */
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
     justify-content: center;
 }
 
 .tech-icon {
-    font-size: 50px; /* Adjust the size as needed */
-    color: #000; /* Black icons */
+    font-size: 50px;
+    color: #000;
     transition: transform 0.3s;
+}
+
+/* Responsive Design for Skills Section */
+@media only screen and (max-width: 768px) {
+    .skills-card {
+        width: 75%;
+    }
+
+    .skills-card h3 {
+        font-size: 1.3em;
+    }
+
+    .skills-icons {
+        justify-content: center; 
+        gap: 10px;
+    }
+
+    .tech-icon {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .skills-card h3 {
+        font-size: 1.2em;
+    }
+
+    .skills-icons {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .tech-icon {
+        font-size: 30px;
+    }
 }
 
 /* Work experience Carousel */
 .carousel {
     display: flex;
-    overflow-x: hidden; /* Hide the scrollbar */
+    overflow-x: hidden; 
     scroll-behavior: smooth;
-    gap: 20px; /* Optional: Adjust gap between carousel items */
+    gap: 20px;
 }
 
 .carousel-container {
@@ -192,13 +394,12 @@ main {
 
 .carousel-button:hover:not(.inactive) {
     background-color: #555;
-    transform: scale(1.1);
 }
 
 .carousel-button.inactive {
-    background-color: #999; /* Change to a gray color */
+    background-color: #999; 
     cursor: default;
-    transform: none; /* No scaling effect */
+    transform: none; 
 }
 
 .logo-container {
@@ -214,9 +415,9 @@ main {
 }
 
 .carousel-item {
-    flex: 0 0 45%; /* Adjust width to fit two items per slide */
+    flex: 0 0 30%; /* Make each card smaller in width */
     margin-right: 10px;
-    background-color: #eef;
+    background-color: #ced0d1;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -226,7 +427,40 @@ main {
     text-align: center;
 }
 
-/*Education*/
+/* Responsive Design for Carousel */
+@media only screen and (max-width: 768px) {
+    .carousel-container {
+        width: 90%;
+    }
+    .carousel-item {
+        flex: 0 0 100%; /* One item per view on mobile */
+        padding: 15px;
+        margin-right: 0;
+    }
+
+    .company-logo {
+        width: 60px;
+    }
+
+    .carousel-button {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .carousel-item {
+        flex: 0 0 100%; /* One item per view on mobile */
+        padding: 15px;
+        margin-right: 0;
+    }
+
+    .company-logo {
+        width: 50px;
+    }
+}
+
+
+/* Education */
 .education-container {
     width: 100%;
     display: flex;
@@ -236,11 +470,11 @@ main {
 }
 
 .education-card {
-    background-color: #fff;
+    background-color: #ced0d1;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 45%; /* Adjust the width as needed */
+    width: 45%;
     margin-bottom: 20px;
 }
 
@@ -258,13 +492,63 @@ main {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    max-height: 200px; /* Set a fixed height for images */
-    object-fit: cover; /* Maintain aspect ratio */
+    max-height: 200px; 
+    object-fit: cover; 
 }
 
 .education-details p {
     margin: 10px 0;
     font-size: 1em;
+}
+
+/* Responsive Design for Education Section */
+@media only screen and (max-width: 768px) {
+    .education-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-card {
+        width: 80%;
+    }
+
+    .education-card h3 {
+        font-size: 1.3em;
+    }
+
+    .education-details h4 {
+        font-size: 1em;
+    }
+
+    .college-image {
+        max-height: 150px;
+    }
+
+    .education-details p {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .education-card {
+        width: 100%;
+    }
+
+    .education-card h3 {
+        font-size: 1.2em;
+    }
+
+    .education-details h4 {
+        font-size: 0.9em;
+    }
+
+    .college-image {
+        max-height: 120px;
+    }
+
+    .education-details p {
+        font-size: 0.8em;
+    }
 }
 
 /* Projects */
@@ -337,7 +621,46 @@ main {
     transform: rotateY(180deg);
 }
 
-/*Footer */
+/* Responsive Design for Projects Section */
+@media only screen and (max-width: 768px) {
+    .project-card {
+        width: 75%;
+        height: 250px;
+    }
+
+    .card-back h3 {
+        font-size: 1.3em;
+    }
+
+    .card-back p {
+        font-size: 0.9em;
+    }
+
+    .card-back a {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .project-card {
+        width: 90%;
+        height: 200px;
+    }
+
+    .card-back h3 {
+        font-size: 1.2em;
+    }
+
+    .card-back p {
+        font-size: 0.8em;
+    }
+
+    .card-back a {
+        font-size: 1.2em;
+    }
+}
+
+/* Footer */
 .dialog {
     display: none;
     position: fixed;
@@ -356,4 +679,41 @@ main {
 .dialog button {
     padding: 5px 10px;
     cursor: pointer;
+}
+
+/* Responsive Design for Footer */
+@media only screen and (max-width: 768px) {
+    .dialog {
+        bottom: 30px;
+        right: 5px;
+        padding: 8px;
+    }
+
+    .dialog p {
+        font-size: 0.9em;
+        margin: 0 0 8px;
+    }
+
+    .dialog button {
+        padding: 4px 8px;
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .dialog {
+        bottom: 20px;
+        right: 5px;
+        padding: 6px;
+    }
+
+    .dialog p {
+        font-size: 0.8em;
+        margin: 0 0 6px;
+    }
+
+    .dialog button {
+        padding: 3px 6px;
+        font-size: 0.8em;
+    }
 }

@@ -1,66 +1,30 @@
 // JavaScript to handle header behavior and carousel scrolling
-
-let lastScrollY = window.scrollY;
 const header = document.getElementById('header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 100) {
-        // Scrolling down and past 100px from the top
-        header.style.top = '-100px';
-    } else {
-        // Scrolling up or within 100px from the top
-        header.style.top = '0';
-    }
-    lastScrollY = window.scrollY;
-});
 
 // Carousel scrolling
 const carousel = document.querySelector('.carousel');
-let isDown = false;
-let startX;
-let scrollLeft;
-
-carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    carousel.classList.add('active');
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-});
-
-carousel.addEventListener('mouseleave', () => {
-    isDown = false;
-    carousel.classList.remove('active');
-});
-
-carousel.addEventListener('mouseup', () => {
-    isDown = false;
-    carousel.classList.remove('active');
-});
-
-carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 3; //scroll-fast
-    carousel.scrollLeft = scrollLeft - walk;
-});
+const leftButton = document.querySelector('.carousel-button.left');
+const rightButton = document.querySelector('.carousel-button.right');
 
 function scrollCarousel(direction) {
     const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
 }
 
-const leftButton = document.querySelector('.carousel-button.left');
-const rightButton = document.querySelector('.carousel-button.right');
+leftButton.addEventListener('click', () => scrollCarousel('left'));
+rightButton.addEventListener('click', () => scrollCarousel('right'));
 
 function updateCarouselButtons() {
-    if (carousel.scrollLeft === 0) {
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+    if (carousel.scrollLeft <= 0) {
         leftButton.classList.add('inactive');
     } else {
         leftButton.classList.remove('inactive');
     }
 
-    if (carousel.scrollWidth - carousel.clientWidth === carousel.scrollLeft) {
+    if (carousel.scrollLeft >= maxScrollLeft) {
         rightButton.classList.add('inactive');
     } else {
         rightButton.classList.remove('inactive');
@@ -68,7 +32,31 @@ function updateCarouselButtons() {
 }
 
 carousel.addEventListener('scroll', updateCarouselButtons);
-window.addEventListener('load', updateCarouselButtons);
+
+// Touch functionality
+let startX;
+let scrollStart;
+
+carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].pageX;
+    scrollStart = carousel.scrollLeft;
+});
+
+carousel.addEventListener('touchmove', (e) => {
+    const x = e.touches[0].pageX;
+    const walk = x - startX;
+    carousel.scrollLeft = scrollStart - walk;
+    updateCarouselButtons();
+});
+
+carousel.addEventListener('touchend', () => {
+    const threshold = 100; // Minimum swipe distance in pixels to consider it a swipe
+    const moveX = carousel.scrollLeft - scrollStart;
+    if (Math.abs(moveX) > threshold) {
+        scrollCarousel(moveX > 0 ? 'right' : 'left');
+    }
+});
+
 
 // Dialogs for email and phone
 function showEmailDialog() {
@@ -119,5 +107,5 @@ function showSection(sectionId) {
 
 // Show default section on page load
 document.addEventListener('DOMContentLoaded', () => {
-    showSection('home'); // Default section is 'home'
+    showSection('home');
 });
