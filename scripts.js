@@ -61,6 +61,14 @@ carousel.addEventListener('touchend', () => {
     }
 });
 
+//Mobile support for card flips
+
+document.querySelectorAll('.project-card .card').forEach(card => {
+    card.addEventListener('click', function() {
+        this.classList.toggle('clicked');
+    });
+});
+
 // Show and hide sections and activate nav buttons
 function showSection(sectionId) {
     const sections = document.querySelectorAll('.content-section');
