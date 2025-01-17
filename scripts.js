@@ -1,6 +1,3 @@
-// JavaScript to handle header behavior and carousel scrolling
-const header = document.getElementById('header');
-
 // Carousel scrolling
 const carousel = document.querySelector('.carousel');
 const leftButton = document.querySelector('.carousel-button.left');
@@ -9,7 +6,7 @@ const rightButton = document.querySelector('.carousel-button.right');
 function scrollCarousel(direction) {
     const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
     carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
+    setTimeout(updateCarouselButtons, 300);
 }
 
 leftButton.addEventListener('click', () => scrollCarousel('left'));
@@ -54,36 +51,21 @@ carousel.addEventListener('touchmove', (e) => {
 
 carousel.addEventListener('touchend', () => {
     isDragging = false;
-    const threshold = 50; // Minimum swipe distance in pixels to consider it a swipe
+    const threshold = 50;
     const moveX = carousel.scrollLeft - scrollStart;
     if (Math.abs(moveX) > threshold) {
         const direction = moveX > 0 ? 'right' : 'left';
         const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
         carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
+        setTimeout(updateCarouselButtons, 300);
     }
 });
 
-// Dialogs for email and phone
-function showEmailDialog() {
-    document.getElementById('email-dialog').style.display = 'block';
-}
-
-function closeEmailDialog() {
-    document.getElementById('email-dialog').style.display = 'none';
-}
-
-function showPhoneDialog() {
-    document.getElementById('phone-dialog').style.display = 'block';
-}
-
-function closePhoneDialog() {
-    document.getElementById('phone-dialog').style.display = 'none';
-}
-
-// Show and hide sections
+// Show and hide sections and activate nav buttons
 function showSection(sectionId) {
     const sections = document.querySelectorAll('.content-section');
+    const navLinks = document.querySelectorAll('nav a');
+
     sections.forEach(section => {
         if (section.id === sectionId) {
             section.classList.add('active');
@@ -91,23 +73,13 @@ function showSection(sectionId) {
             section.classList.remove('active');
         }
     });
-}
-
-// Show default section on page load
-document.addEventListener('DOMContentLoaded', () => {
-    showSection('home'); // Default section is 'home'
-});
-
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('.content-section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    sections.forEach(section => {
-        section.classList.toggle('active', section.id === sectionId);
-    });
 
     navLinks.forEach(link => {
-        link.classList.toggle('active', link.id === `nav-${sectionId}`);
+        if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
     });
 }
 
