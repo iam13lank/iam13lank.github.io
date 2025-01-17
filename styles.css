@@ -415,7 +415,7 @@ main {
 }
 
 .carousel-item {
-    flex: 0 0 30%; /* Make each card smaller in width */
+    flex: 0 0 30%; 
     margin-right: 10px;
     background-color: #ced0d1;
     padding: 20px;
@@ -433,9 +433,10 @@ main {
         width: 90%;
     }
     .carousel-item {
-        flex: 0 0 100%; /* One item per view on mobile */
+        flex: 0 0 90%;
         padding: 15px;
         margin-right: 0;
+        justify-content: center;
     }
 
     .company-logo {
@@ -448,11 +449,6 @@ main {
 }
 
 @media only screen and (max-width: 480px) {
-    .carousel-item {
-        flex: 0 0 100%; /* One item per view on mobile */
-        padding: 15px;
-        margin-right: 0;
-    }
 
     .company-logo {
         width: 50px;

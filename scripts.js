@@ -3,20 +3,31 @@ const header = document.getElementById('header');
 
 // Carousel scrolling
 const carousel = document.querySelector('.carousel');
+const leftButton = document.querySelector('.carousel-button.left');
+const rightButton = document.querySelector('.carousel-button.right');
+
+function scrollCarousel(direction) {
+    const scrollAmount = direction === 'left' ? -carousel.clientWidth : carousel.clientWidth;
+    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    setTimeout(updateCarouselButtons, 300); // Delay to ensure scrolling completes
+}
+
+leftButton.addEventListener('click', () => scrollCarousel('left'));
+rightButton.addEventListener('click', () => scrollCarousel('right'));
 
 function updateCarouselButtons() {
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
 
     if (carousel.scrollLeft <= 0) {
-        carousel.classList.add('at-start');
+        leftButton.classList.add('inactive');
     } else {
-        carousel.classList.remove('at-start');
+        leftButton.classList.remove('inactive');
     }
 
     if (carousel.scrollLeft >= maxScrollLeft) {
-        carousel.classList.add('at-end');
+        rightButton.classList.add('inactive');
     } else {
-        carousel.classList.remove('at-end');
+        rightButton.classList.remove('inactive');
     }
 }
 
