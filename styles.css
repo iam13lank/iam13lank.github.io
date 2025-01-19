@@ -327,6 +327,21 @@ main {
     color: #000;
     transition: transform 0.3s;
 }
+.skill-name {
+    display: none;
+    position: absolute;
+    background-color: #f0f0f0a6;
+    border: 1px solid #f0f0f0a6;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 0.4em;
+    z-index: 100;
+}
+
+.tech-icon.active .skill-name {
+    display: block;
+}
+
 
 /* Responsive Design for Skills Section */
 @media only screen and (max-width: 768px) {
@@ -363,61 +378,17 @@ main {
     }
 }
 
-/* Work experience Carousel */
-.carousel {
+/* Work Experience */
+.experience-container {
     display: flex;
-    overflow-x: hidden; 
-    scroll-behavior: smooth;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
-.carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.carousel-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.carousel-button:hover:not(.inactive) {
-    background-color: #555;
-}
-
-.carousel-button.inactive {
-    background-color: #999; 
-    cursor: default;
-    transform: none; 
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.company-logo {
-    width: 100px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.carousel-item {
-    flex: 0 0 30%; 
-    margin-right: 10px;
+.experience-card {
+    margin: 10px;
     background-color: #ced0d1;
     padding: 20px;
     border-radius: 10px;
@@ -426,15 +397,29 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s;
 }
 
-/* Responsive Design for Carousel */
+.company-logo {
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+}
+
+.experience-card.active .card-content {
+    display: block;
+}
+
 @media only screen and (max-width: 768px) {
-    .carousel-container {
-        width: 90%;
-    }
-    .carousel-item {
-        flex: 0 0 90%;
+    .experience-card {
         padding: 15px;
         margin-right: 0;
         justify-content: center;
@@ -443,18 +428,14 @@ main {
     .company-logo {
         width: 60px;
     }
-
-    .carousel-button {
-        display: none;
-    }
 }
 
 @media only screen and (max-width: 480px) {
-
     .company-logo {
         width: 50px;
     }
 }
+
 
 
 /* Education */
@@ -611,7 +592,7 @@ main {
     margin-bottom: 10px;
 }
 
-.project-card:hover .card {
+.project-card .card.clicked {
     transform: rotateY(180deg);
 }
 
