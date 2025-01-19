@@ -530,7 +530,7 @@ main {
 #projects.content-section.active {
     display: flex; 
     flex-wrap: wrap; 
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .project-card {
@@ -557,10 +557,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0px 5px 0px;
     box-sizing: border-box;
 }
 
@@ -623,16 +623,16 @@ main {
     }
 
     .card-back h3 {
-        font-size: 1.3em;
+        font-size: 0.9em;
         padding: 0;
     }
 
     .card-back p {
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     .card-back a {
-        font-size: 1.5em;
+        font-size: 1.0em;
     }
 }
 
